@@ -18,55 +18,6 @@ pub struct PlaceBid<'info> {
 }
 
 pub fn place_bid(ctx: Context<PlaceBid>, args: PlaceBidArgs) -> Result<()> {
-    // pub fn place_bid(&mut self, params: PlaceBidParams, account: &AccountInfo) {
-    //     let station_id = params.id.clone();
-    //     let bidder = params.bidder.clone();
-    //     let amount = params.amount.clone();
-    //     let price_per_amount = params.price_per_amount.clone();
-
-    //     msg!("\nINFO: Instruction: Place Bid");
-    //     msg!("\nINFO: Params: {:?}", params);
-    //     msg!("\nINFO: Account: {:?}", account);
-
-    //     if let Some(station) = self.stations.get_mut(&station_id) {
-    //         if let Some(auction) = &mut station.auction {
-    //             if auction.ongoing {
-    //                 let clock = Clock::get()?;
-    //                 let current_timestamp = clock.unix_timestamp as u64;
-    //                 if auction.timestamp <= current_timestamp {
-    //                     msg!(
-    //                         "\nINFO: Placing bid for auction in station with ID: {}",
-    //                         station_id
-    //                     );
-    //                     let bid = Bid {
-    //                         bidder,
-    //                         amount,
-    //                         price_per_amount,
-    //                     };
-    //                     auction.bids.push(bid);
-    //                 } else {
-    //                     msg!(
-    //                         "\nERROR: Auction for station with ID: {} has already ended.",
-    //                         station_id
-    //                     );
-    //                 }
-    //             } else {
-    //                 msg!(
-    //                     "\nERROR: No ongoing auction for station with ID: {}",
-    //                     station_id
-    //                 );
-    //             }
-    //         } else {
-    //             msg!(
-    //                 "\nERROR: No auction found for station with ID: {}",
-    //                 station_id
-    //             );
-    //         }
-    //     } else {
-    //         msg!("\nERROR: No station found with ID: {}", station_id);
-    //     }
-    // }
-
     let station: &mut Account<Station> = &mut ctx.accounts.station;
 
     msg!("\nINFO: Instruction: Place Bid");
